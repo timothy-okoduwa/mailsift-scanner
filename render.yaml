@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: mailsift-scanner
+    env: python
+    buildCommand: pip install -r requirements.txt && playwright install chromium && playwright install-deps chromium
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    plan: free
